@@ -11,7 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function App() {
   const [squatCount, setSquatCount] = useState(0);
-function addSquart(squatNum){
+function addSquat(squatNum){
   const newCount = squatCount + squatNum;
   setSquatCount(newCount)
 }
