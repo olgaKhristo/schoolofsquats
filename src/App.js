@@ -11,9 +11,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function App() {
   const [squatCount, setSquatCount] = useState(0);
-function addSquat(squatNum){
+function addSquats(squatNum){
   const newCount = squatCount + squatNum;
-  setSquatCount(newCount)
+  setSquatCount(newCount + squatCount)
+}
+function resetSquats(){
+  setSquatCount(0);
 }
 
   return (
@@ -23,10 +26,10 @@ function addSquat(squatNum){
     <h2 className='squats-number-display'>You done {squatCount} squats so far. Keep it going!</h2>
       <section className='bth-here'>
       <Button variant="contained">Hello World</Button>
-     <AddSquatsButton numberOfSquats={1}/>
+     <AddSquatsButton  onClick={()=>{addSquats(1)}} numberOfSquats={1}/>
      <AddSquatsButton numberOfSquats={5}/>
      <AddSquatsButton numberOfSquats={10}/>
-      <button className='reset-butn'>Reset button</button>
+      <button className='reset-butn' onClick={resetSquats}>Reset button</button>
 
 
       </section>
