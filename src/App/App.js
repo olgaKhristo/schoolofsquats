@@ -1,5 +1,5 @@
 import './App.css';
-import AddSquatsButton  from './AddSquatsButton';
+import AddSquatsButton  from '../AddSquatsButton';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import Accordion from '@mui/material/Accordion';
@@ -13,10 +13,12 @@ function App() {
   const [squatCount, setSquatCount] = useState(0);
 function addSquats(squatNum){
   const newCount = squatCount + squatNum;
+  console.log(`Testing count ${newCount}`)
   setSquatCount(newCount + squatCount)
 }
 function resetSquats(){
   setSquatCount(0);
+  console.log('test me')
 }
 
   return (
@@ -26,9 +28,9 @@ function resetSquats(){
     <h2 className='squats-number-display'>You done {squatCount} squats so far. Keep it going!</h2>
       <section className='bth-here'>
       <Button variant="contained">Hello World</Button>
-     <AddSquatsButton  onClick={()=>{addSquats(1)}} numberOfSquats={1}/>
-     <AddSquatsButton numberOfSquats={5}/>
-     <AddSquatsButton numberOfSquats={10}/>
+     <AddSquatsButton  numberOfSquats={1} addSquats={addSquats}/>
+     <AddSquatsButton numberOfSquats={5} addSquats={addSquats}/>
+     <AddSquatsButton numberOfSquats={10} addSquats={addSquats}/>
       <button className='reset-butn' onClick={resetSquats}>Reset button</button>
 
 

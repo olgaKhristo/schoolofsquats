@@ -1,8 +1,9 @@
 import React from "react";
 
-function AddSquatsButton({numberOfSquats}){
+
+function AddSquatsButton({numberOfSquats, addSquats}){
     return(
-        <button>
+        <button onClick={()=>addSquats(1)} >
             Add {numberOfSquats}
         </button>
     );
