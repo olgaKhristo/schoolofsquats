@@ -7,6 +7,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Display from '../Display'
+import ResetBtn from '../ResetBtn'
 
 
 function App() {
@@ -14,25 +16,22 @@ function App() {
 function addSquats(squatNum){
   const newCount = squatCount + squatNum;
   console.log(`Testing count ${newCount}`)
-  setSquatCount(newCount + squatCount)
+  setSquatCount(squatCount + squatNum)
 }
-function resetSquats(){
-  setSquatCount(0);
-  console.log('test me')
-}
+
 
   return (
     <div className="App">
       <h1>Heading here</h1>
       <img id='logo' src="https://i.ibb.co/ZfnfqHP/school-of-suats.png" style={{height:200, width:200}} alt='some img here' />
-    <h2 className='squats-number-display'>You done {squatCount} squats so far. Keep it going!</h2>
-      <section className='bth-here'>
+      <Display squatCount={squatCount}/>
+      <ResetBtn ResetSquats={ResetBtn}/>
       <Button variant="contained">Hello World</Button>
-     <AddSquatsButton  numberOfSquats={1} addSquats={addSquats}/>
-     <AddSquatsButton numberOfSquats={5} addSquats={addSquats}/>
-     <AddSquatsButton numberOfSquats={10} addSquats={addSquats}/>
-      <button className='reset-butn' onClick={resetSquats}>Reset button</button>
-
+     
+      <section className='bth-here'>
+      <AddSquatsButton  numberOfSquats={1} addSquats={()=>{addSquats(1)}}/>
+     <AddSquatsButton numberOfSquats={5} addSquats={()=>{addSquats(5)}}/>
+     <AddSquatsButton numberOfSquats={10} addSquats={()=>{addSquats(10)}}/>
 
       </section>
       <Accordion>
